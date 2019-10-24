@@ -1,0 +1,12 @@
+{% extends 'articles/base.html' %}
+{% block content %}
+<div class="row">
+<div class="col-md-2"></div>
+{% load crispy_forms_tags %}
+<form method="post" class="col-md-8">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" value="{%if form.instance.pk %}Update{%else%}Register{%endif%}" class="btn btn-primary btn-block">
+</form>
+</div>
+{% endblock %}
